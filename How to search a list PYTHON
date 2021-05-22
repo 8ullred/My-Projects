@@ -1,0 +1,43 @@
+import random
+
+
+#Creating a random list
+lst = []
+
+for x in range(10000):
+    lst.append(random.randint(1, 200))
+
+#Printing and sorting the list
+print(lst)
+
+lst.sort()
+print(lst)
+
+#Defining the search
+def search0(lst, v):
+    i0 = 0
+    i1 = len(lst) - 1
+
+    count = 0
+    while i0 <= i1:
+        idx = int((i0 + i1) / 2)
+        count = count + 1
+
+
+        if lst[idx] == v:
+            return idx, count
+        elif lst[idx] < v:
+            i0 = idx+1
+        else:
+            i1 = idx-1
+    return -1, count
+
+
+
+
+print(search0(lst, 56))
+print(search0(lst, 560000))
+
+
+
+#Code by 8ullred, made in Python 3 on 2021-05-21
